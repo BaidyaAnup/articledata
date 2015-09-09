@@ -1,0 +1,39 @@
+<h1>Listing articles</h1>
+ 
+<table>
+  <tr>
+    <th>firstname</th>
+    <th>lastname</th>
+    <th>email</th>
+    <th>address</th>
+    <th>gender</th>
+    <th>interest</th>
+    <th>city</th>
+    <th>state</th>
+    <th>country</th>
+    
+    
+
+ </tr>
+ 
+  <% @article.each do |article| %>
+    <tr>
+      <td><%= article.firstname %></td>
+      <td><%= article.lastname %></td>
+       <td><%= article.email %></td>
+       <td><%= article.address %></td>
+       <td><%= article.gender %></td>
+       <td><%= article.interest %></td>
+       <td><%= article.city%></td>
+       <td><%= article.state %></td>
+       <td><%= article.country %></td>
+        <td><%= link_to 'edit' ,edit_article_path(article)%></td>
+         <td><%= link_to 'delete' ,article,method: :delete,data:{ confirm: 'are you sure?'} %></td>
+
+    </tr>
+  <% end %>
+</table>
+<%= link_to 'new', new_article_path %><br>
+<
+
+

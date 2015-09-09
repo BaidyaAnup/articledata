@@ -1,0 +1,66 @@
+<%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@article.errors.count, "error") %> prohibited this product from being saved:</h2>
+
+      <ul>
+      <% @article.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :firstname %><br>
+    <%= f.text_field :firstname %>
+  </div>
+  <div class="field">
+    <%= f.label :lastname %><br>
+    <%= f.text_field :lastname %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label :address %><br>
+    <%= f.text_area :address %>
+  </div>
+  <div class="field">
+     <%= f.label :gender %><br>
+     <%= f.label :male %>
+     
+
+
+    <%=f.radio_button(:gender,"male")%>
+    <%= f.label :female %>
+    <%=f.radio_button(:gender,"female")%>
+    <br>
+  </div>
+
+<div class="field">
+    <%= f.label :interest %><br>
+     <% ["coding" , "testing" , "database"].each do |x| %>
+   <input type="checkbox" validate="required:true" name="article[interest][]" value="<%= x %>">
+    <%=f.label x %><br>
+    <% end -%>
+  
+  </div>
+  <div class="field">
+    <%= f.label :city %><br>
+    <%= f.text_field :city %>
+    <br>
+    <%=f.label :state %><br>
+    <%= f.select(:state, [["select",""],['MP',"MP"],['UP',"UP"]]) %>
+    
+    <br>
+    <%= f.label :country%><br>
+     <%= f.select(:country,[["select",""],['India',"India"],['US',"US"]])%>
+  </div>
+  <br>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
