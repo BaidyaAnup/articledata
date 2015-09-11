@@ -2,7 +2,8 @@ class ArticlesController < ApplicationController
 	#before_action :set_article, only: [:edit, :update, :destroy]
 
   # GET /products
-  # GET /products.json
+  
+
   def index
   @article = Article.all
   end
@@ -13,6 +14,10 @@ class ArticlesController < ApplicationController
   #end
 
   # GET /products/new
+  def show
+  @article=Article.find(params[:id])
+ end
+
   def new
     @article = Article.new
   end

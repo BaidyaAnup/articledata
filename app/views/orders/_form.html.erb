@@ -1,0 +1,33 @@
+<h1>New Order</h1>
+<%#= form_for([@article,@article.orders.build]) do |f| %>
+<%= form_for(@order) do |f| %>
+<div class= "field">
+  <%=f.label :article_id %><br>
+  <%#=f.select ("order","article_id",Article.all.collect {|p| [ p.name, p.id ]}, {include_blank: 'None'}) %>
+  <%#=f.select ("order","article_id",Article.all.collect {|p| [ p.name, p.id ]}, {include_blank: 'None'}) %>
+  <%= f.select :article_id, Article.all.collect {|x| [x.name,x.id]} %>
+  
+  
+
+  </div>
+
+  <div class= "field">
+
+  <%= f.label :name %><br>
+  <%= f.text_field :name %>
+</div>
+<div class= "field">
+  <%=f.label :desc %><br>
+  <%=f.text_field :desc %>
+</div>
+
+<div class="field">
+  <%= f.submit  %>
+</div>
+
+
+<% end -%>
+  
+  
+
+

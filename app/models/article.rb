@@ -7,6 +7,11 @@ class Article < ActiveRecord::Base
 	validates :city, presence:true
 	validates :state, presence:true, if: "!state.nil?"
 	validates :country, presence: true, if: "!country.nil?"
+	has_many :orders
 
+	def name
+		"#{firstname} #{lastname}"
+	end
+	
 end
 	  
